@@ -81,6 +81,10 @@
  ![Alt text](Images/vgs.jpg)
 
  - Using lvcreate utility, i created 2 logical volumes by diving the disk into half and call it **apps-lv** and use the remaining space for **logs-lv**, with this command
+
+ -  **sudo vgdisplay -v #view complete setup - VG, PV, and LV
+sudo lsblk**
+
  
  
     **sudo lvcreate -n apps-lv -L 14G webdata-vg**
@@ -95,6 +99,84 @@
 - I used sudo lvs to varify that my logical volumes was cteated successfully.
 
   ![Alt text](Images/sudolvs.jpg)
+
+
+-  I used **sudo vgdisplay -v #view complete setup - VG, PV, and LV** to varify all my setup 
+  ![Alt text](Images/allsetup.jpg)
+
+
+  -  Sudo **slblk** 
+
+
+ 
+
+    
+    
+![Alt text](Images/lsblk3.jpg)
+
+
+-  I used **sudo mkfs -t ext4 /dev/webdata-vg/apps-lv**
+
+ 
+    **sudo mkfs -t ext4 /dev/webdata-vg/logs-lv**
+
+
+    to format the logical volumes in **ext4**  format
+
+
+   ![Alt text](Images/format.jpg)
+
+
+
+-  I now created the directory to store my website files 
+
+    **sudo mkdir -p /var/www/html**
+
+
+- I also created a directory to store my logs 
+
+    **sudo mkdir -p /home/recorvery/logs**
+
+    ![Alt text](Images/logdir.jpg)
+
+
+-  I mouted my file system and log using 
+
+
+     **sudo mount /dev/webdata-vg/apps-lv /var/www/html/**
+
+    **sudo mount /dev/webdata-vg/logs-lv /var/log**
+
+
+  -  Using sudo blkid to get UUID to update /etc/fstab file 
+
+     ![Alt text](Images/uuidget.jpg)
+
+
+     ![Alt text](Images/uuidd.jpg)  
+
+
+     -  Sudo -a to mout it 
+
+
+-    sudo **systemctl daemon-reload**,  to reolad .
+
+
+
+-  df -h to varify that my setup is running 
+
+   ![Alt text](Images/setuprunning.jpg)
+
+   
+
+
+
+
+
+
+
+
+
 
 
 
