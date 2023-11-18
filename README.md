@@ -167,6 +167,10 @@ sudo lsblk**
 
    ![Alt text](Images/setuprunning.jpg)
 
+
+
+   ## INSTALLING WORDPRESS AND CONFIGURING TO USE MYSQL DATABASE 
+
    
 
 
