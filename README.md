@@ -438,7 +438,7 @@ sudo setsebool -P httpd_can_network_connect=1
 -  sudo mysql
 CREATE DATABASE wordpress1;
 CREATE USER `myuser`@`107.20.125.167` IDENTIFIED BY 'mypass';
-GRANT ALL ON wordpress1.* TO 'myuser'@'1107.20.125.167';
+GRANT ALL ON wordpress1.* TO 'myuser'@'107.20.125.167';
 FLUSH PRIVILEGES;
 SHOW DATABASES;
 exit
@@ -461,6 +461,30 @@ exit
   ![Alt text](<Images/Unsaved Image 26.jpg>)
 
 
+- cd into `/var/www/html` directory and `ls`
+- cd into `wordpress` and `ls`
+    - Run `sudo vi wp-config.php` and edit 
+    ![Alt text](Images/wp-php.png)
+    
+![Alt text](<Images/edit php.png>)
+
+    - Restart `mysql` on DB-server
+    - Run `sudo systemctl restart mysqld`
+    
+    - T0 access wordpress from browser 
+ 
+    - Run ``http://<web-server public-Ip address>/wordpress/``
+       - Run `http://107.20.125.167/wordpress/`
+
+![Alt text](Images/w1.png) 
+
+![Alt text](Images/w2.png)
+
+![Alt text](Images/w3.png)
+
+![Alt text](Images/w4.png)
+
+## Project completed
 
 
    
